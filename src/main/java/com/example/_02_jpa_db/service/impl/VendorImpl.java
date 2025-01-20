@@ -1,8 +1,9 @@
-package com.example._02_jpa_db.impl;
+package com.example._02_jpa_db.service.impl;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+import com.example._02_jpa_db.exception.VendorNotFoundException;
 import com.example._02_jpa_db.models.Vendor;
 import com.example._02_jpa_db.repository.VendorRepository;
 import com.example._02_jpa_db.service.VendorService;
@@ -34,8 +35,9 @@ public class VendorImpl implements VendorService {
     }
 
     @Override
-    public Vendor getVendorDetails(String vendorId) {
-        return vendorRepository.findById(vendorId).get();
+    public Vendor getVendor(String vendorId) {
+        return vendorRepository.findById(vendorId)
+                .orElseThrow(() -> new VendorNotFoundException("Vendor with ID " + vendorId + " doesn't exist"));
     }
 
     @Override
@@ -44,10 +46,3 @@ public class VendorImpl implements VendorService {
     }
 
 }
-
-
-
-
-
-
-

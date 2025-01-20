@@ -11,7 +11,7 @@ public interface VendorService {
 
     public String deleteVendor(String vendorId);
 
-    public Vendor getVendorDetails(String vendorId);
+    public Vendor getVendor(String vendorId);
 
     public List<Vendor> getAllVendors();
 }

@@ -27,7 +27,7 @@ public class VendorController {
 
     @GetMapping("{vendor}")
     public Vendor getVendorDetails(@PathVariable("vendor") String vendorId) {
-        return vendorService.getVendorDetails(vendorId);
+        return vendorService.getVendor(vendorId);
     }
 
     @PostMapping
